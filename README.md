@@ -10,7 +10,8 @@
 <li><a href="#contact">Contact</a></li> 
 <h2 id="description"> Description </h2>
 <p>......</p>   
-<h2 id="tech"> Node, HTML</h2>          
+<h2 id="tech"> Technology Stack </h2>  
+<p>Node, HTML, Jest</p>        
 <h2 id="screen"> ScreenShoots </h2>
 <h4>Desktop view</h4>
 <!-- <img src= "..."> -->
