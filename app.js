@@ -36,7 +36,7 @@ const questions = [{
 ];
 
 
-function inquireQ() {
+const inquireQ = () => {
 
     inquirer
         .prompt([
@@ -47,12 +47,12 @@ function inquireQ() {
                 choices: ["Build team", "Finish team"],
                 name: "moreTeam"
             }
-        ]).then(function (response) {
+        ]).then(response => {
             const moreTeam = response.moreTeam;
             switch (moreTeam) {
                 case "Build team":
                     inquirer.prompt(questions)
-                        .then(function (response) {
+                        .then(response => {
 
                             // info.push(response);
 
@@ -61,7 +61,7 @@ function inquireQ() {
                                     type: "input",
                                     message: "What is your office number?",
                                     name: "officeNum"
-                                }).then(function (managerOffice) {
+                                }).then(managerOffice => {
                                     var newManager = new Manager(response.fullName, response.id, response.email, managerOffice.officeNum);
                                     team.push(newManager);
                                     console.log(team);
@@ -73,7 +73,7 @@ function inquireQ() {
                                     type: "input",
                                     message: "What is your github user name??",
                                     name: "github"
-                                }).then(function (engineerGH) {
+                                }).then(engineerGH => {
                                     var newEngineer = new Engineer(response.fullName, response.id, response.email, engineerGH.github);
                                     team.push(newEngineer);
                                     inquireQ();
@@ -84,7 +84,7 @@ function inquireQ() {
                                     type: "input",
                                     message: "What school did you attend?",
                                     name: "school"
-                                }).then(function (internSchool) {
+                                }).then(internSchool => {
                                     var newIntern = new Intern(response.fullName, response.id, response.email, internSchool.school);
                                     team.push(newIntern);
                                     console.log(team);
