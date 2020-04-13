@@ -10,6 +10,8 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+let team = [];
+
 const questions = [{
         type: "input",
         message: "What is your full name?",
@@ -32,7 +34,7 @@ const questions = [{
         name: "role"
     }
 ];
-let team = [];
+
 
 function inquireQ() {
 
@@ -60,7 +62,7 @@ function inquireQ() {
                                     message: "What is your office number?",
                                     name: "officeNum"
                                 }).then(function (managerOffice) {
-                                    var newManager = new Manager(response.fullName, response.id, response.email, response.role, managerOffice.officeNum);
+                                    var newManager = new Manager(response.fullName, response.id, response.email, managerOffice.officeNum);
                                     team.push(newManager);
                                     console.log(team);
                                     inquireQ();
@@ -72,7 +74,7 @@ function inquireQ() {
                                     message: "What is your github user name??",
                                     name: "github"
                                 }).then(function (engineerGH) {
-                                    var newEngineer = new Engineer(response.fullName, response.id, response.email, response.role, engineerGH.github);
+                                    var newEngineer = new Engineer(response.fullName, response.id, response.email, engineerGH.github);
                                     team.push(newEngineer);
                                     inquireQ();
 
@@ -83,7 +85,7 @@ function inquireQ() {
                                     message: "What school did you attend?",
                                     name: "school"
                                 }).then(function (internSchool) {
-                                    var newIntern = new Intern(response.fullName, response.id, response.email, response.role, internSchool.school);
+                                    var newIntern = new Intern(response.fullName, response.id, response.email, internSchool.school);
                                     team.push(newIntern);
                                     console.log(team);
                                     inquireQ();
