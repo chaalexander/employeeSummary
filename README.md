@@ -25,10 +25,10 @@
 </ol> 
 After answering all the questions will generate a new HTML with the information for your team.
 <h2 id="screen"> ScreenShoots </h2>
-<!-- <h4>Desktop view</h4> -->
-<!-- <img src= "..."> -->
-<!-- <h4>Mobile view</h4> -->
-<!-- <img src= "..."> -->
+<h4>Desktop view</h4>
+<img src= "assets/desktop.png">
+<h4>Mobile view</h4>
+<img width="200" height="300" src= "assets/mobile.png">
 <h2 id="test"> Test </h2>
 <img src= "assets/engineer.gif">
 <img src= "assets/intern-gif.gif">
