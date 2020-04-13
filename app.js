@@ -10,7 +10,6 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-
 const questions = [{
         type: "input",
         message: "What is your full name?",
@@ -31,18 +30,11 @@ const questions = [{
         message: "What type of employee are you?",
         choices: ['Manager', 'Engineer', 'Intern'],
         name: "role"
-    },
-    {
-        type: "list",
-        message: "Number of Employees:",
-        choices: [1, 2, 3, "No more Employees"],
-        name: "numOfEmps"
     }
 ];
-
+let team = [];
 
 function inquireQ() {
-    let team = [];
 
     inquirer
         .prompt([
@@ -98,25 +90,39 @@ function inquireQ() {
 
                                 });
                             }
-
-
                         });
 
                     break;
                 case "Finish team":
                     if (team.length > 0) {
-                        console.log("all done!")
+                        console.log("all done!");
+                        writeHTML(render(team));
                     } else {
                         console.log("no team members");
                     }
                     break;
-
                 default:
                     break;
                     //end of switch
+
             }
+
         });
 }
 
-
 inquireQ();
+
+function writeHTML(HTML) {
+    console.log(HTML);
+
+    fs.writeFile(outputPath, HTML, function (err) {
+        if (err) {
+            return console.log(err);
+        }
+
+        console.log("Success");
+
+
+    })
+}
+console.log(writeHTML);
