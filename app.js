@@ -4,6 +4,7 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const validator = require("validator");
 
 const OUTPUT_DIR = path.resolve(__dirname, "output")
 const outputPath = path.join(OUTPUT_DIR, "team.html");
@@ -15,17 +16,38 @@ let team = [];
 const questions = [{
         type: "input",
         message: "What is your full name?",
-        name: "fullName"
+        name: "fullName",
+        validate: value => {
+            var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+            if (!regName.test(value)) {
+                return "'Please enter your full name (first & last name)";
+            }
+            return true;
+        }
     },
     {
         type: "input",
         message: "What is your employee id?",
-        name: "id"
+        name: "id",
+        validate: value => {
+            if (validator.isInt(value)) {
+                return true
+            }
+            return "Please enter a valid ID Number."
+        }
+
     },
     {
         type: "input",
         message: "Please enter your email:",
-        name: "email"
+        name: "email",
+        validate: value => {
+            if (validator.isEmail(value)) {
+                return true
+            }
+            return "Please enter a valid e-mail address."
+        }
+
     },
     {
         type: "list",
@@ -60,7 +82,14 @@ const inquireQ = () => {
                                 inquirer.prompt({
                                     type: "input",
                                     message: "What is your office number?",
-                                    name: "officeNum"
+                                    name: "officeNum",
+                                    validate: value => {
+                                        if (validator.isInt(value)) {
+                                            return true
+                                        }
+                                        return "Please enter a valid office number"
+                                    }
+
                                 }).then(managerOffice => {
                                     var newManager = new Manager(response.fullName, response.id, response.email, managerOffice.officeNum);
                                     team.push(newManager);
