@@ -126,13 +126,7 @@ const inquireQ = () => {
                                 inquirer.prompt({
                                     type: "input",
                                     message: "What school did you attend?",
-                                    name: "school",
-                                    validate: value => {
-                                        if (validator.isAlpha(value)) {
-                                            return true
-                                        }
-                                        return "Please enter a valid School Name."
-                                    }
+                                    name: "school"
                                 }).then(internSchool => {
                                     var newIntern = new Intern(response.fullName, response.id, response.email, internSchool.school);
                                     team.push(newIntern);
