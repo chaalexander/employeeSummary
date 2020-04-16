@@ -6,6 +6,7 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const validator = require("validator");
 
+
 // importing internal class modules
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
@@ -28,7 +29,7 @@ const questions = [{
         validate: value => {
             var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
             if (!regName.test(value)) {
-                return "'Please enter your full name (first & last name)";
+                return "Please enter your full name (first & last name)";
             }
             return true;
         }
@@ -106,7 +107,15 @@ const inquireQ = () => {
                                 inquirer.prompt({
                                     type: "input",
                                     message: "What is your github user name??",
-                                    name: "github"
+                                    name: "github",
+                                    validate: value => {
+                                        var regName = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i;
+                                        if (!regName.test(value)) {
+                                            return "Please enter a valid github username.";
+                                        }
+                                        return true;
+                                    }
+
                                 }).then(engineerGH => {
                                     var newEngineer = new Engineer(response.fullName, response.id, response.email, engineerGH.github);
                                     team.push(newEngineer);
@@ -117,7 +126,13 @@ const inquireQ = () => {
                                 inquirer.prompt({
                                     type: "input",
                                     message: "What school did you attend?",
-                                    name: "school"
+                                    name: "school",
+                                    validate: value => {
+                                        if (validator.isAlpha(value)) {
+                                            return true
+                                        }
+                                        return "Please enter a valid School Name."
+                                    }
                                 }).then(internSchool => {
                                     var newIntern = new Intern(response.fullName, response.id, response.email, internSchool.school);
                                     team.push(newIntern);
