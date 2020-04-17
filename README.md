@@ -1,4 +1,3 @@
-
 <img align="left" src= "https://img.shields.io/badge/License-MIT-green">
 <img align="right" width="100" height="100" src="https://avatars1.githubusercontent.com/u/59755481?v=4">
  <h1 align= "center"> Employee Summary</h1> 
@@ -26,13 +25,13 @@
 After answering all the questions will generate a new HTML with the information for your team.
 <h2 id="screen"> ScreenShoots </h2>
 <h4>Desktop view</h4>
-<img src= "assets/desktop.png">
+<img src= "screenshots/desktop.png">
 <h4>Mobile view</h4>
-<img width="200" height="300" src= "assets/mobile.png">
+<img width="200" height="300" src= "screenshots/mobile.png">
 <h2 id="test"> Test </h2>
-<img src= "assets/engineer.gif">
-<img src= "assets/intern-gif.gif">
-<img src= "assets/manager.gif">
+<img src= "screenshots/manager.gif">
+<img src= "screenshots/intern-gif.gif">
+<img src= "screenshots/engineer.gif">
 <h2 id="contributors"> Contributors </h2>
 <p><a href= "https://github.com/chaalexander">@chaalexander</a></p> 
 <h2 id="contact"> Contact </h2>         
@@ -40,4 +39,4 @@ After answering all the questions will generate a new HTML with the information 
 <h5><a href= "https://github.com/chaalexander">GitHub</a></h5>  
 <h5><a href= "https://chaalexander.github.io/">Portfolio</a></h5>  
 <h5><a href= "mailto:charlennep@gmail.com">charlennep@gmail.com</a></h5>       
-<h5><a href= "https://www.linkedin.com/in/cha-alexander">LinkedIn</a></h5>    
+<h5><a href= "https://www.linkedin.com/in/cha-alexander">LinkedIn</a></h5>
