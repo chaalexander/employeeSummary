@@ -13,7 +13,7 @@
 <h2 id="description"> Description </h2>
 <p>App created to help a company to build their team of employee.</p>   
 <h2 id="installation"> Installation </h2>
-<p>JSON file included, just install.</p> 
+<p>JSON packages included. Just run npm i</p>    
 <h2 id="tech"> Technology Stack </h2>  
 <p>Node, HTML, Jest</p>        
 <h2 id="usage"> Usage </h2>
