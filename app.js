@@ -101,7 +101,7 @@ const inquireQ = () => {
                     managerOffice.officeNum
                   );
                   team.push(newManager);
-                  console.log(team);
+
                   inquireQ();
                 });
             } else if (response.role === "Engineer") {
@@ -143,7 +143,7 @@ const inquireQ = () => {
                     internSchool.school
                   );
                   team.push(newIntern);
-                  console.log(team);
+
                   inquireQ();
                 });
             }
@@ -152,7 +152,6 @@ const inquireQ = () => {
           break;
         case "Finish team":
           if (team.length > 0) {
-            console.log("all done!");
             writeHTML(render(team));
           } else {
             console.log("no team members");
@@ -168,17 +167,13 @@ const inquireQ = () => {
 inquireQ();
 
 const writeHTML = (HTML) => {
-  console.log(HTML);
-
   fs.writeFile(outputPath, HTML, (err) => {
     if (err) {
       return console.log(err);
     }
-
     console.log("Success");
   });
 };
-console.log(writeHTML);
 
 CFonts.say("Welcome|Terrence|Please Give Me An A+", {
   font: "chrome",
