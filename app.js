@@ -1,7 +1,11 @@
+const express = require("express");
+const compression = require("compression");
+const app = express();
+
 // importing internal node packages
 const path = require("path");
 const fs = require("fs");
-
+app.use(compression());
 // importing external npm packages
 const inquirer = require("inquirer");
 const validator = require("validator");
